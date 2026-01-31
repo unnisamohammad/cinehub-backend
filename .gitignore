@@ -6,6 +6,7 @@ target/
 .mvn/
 mvnw
 mvnw.cmd
+classpath.txt
 
 ### STS ###
 .apt_generated

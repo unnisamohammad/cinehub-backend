@@ -1,0 +1,35 @@
+# Development Profile Configuration
+# Overrides main application.yml for local development
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cinehub?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+    username: root
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+  # Disable Redis and RabbitMQ for basic testing (optional)
+  # Uncomment these if you don't have Redis/RabbitMQ running
+  # data:
+  #   redis:
+  #     host: localhost
+  #     port: 6379
+
+logging:
+  level:
+    com.razkart.cinehub: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.flywaydb: DEBUG
